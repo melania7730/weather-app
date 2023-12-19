@@ -15,12 +15,13 @@
   <body>
     <div class="weather-app">
       <header>
-        <form class="form-search">
+        <form class="form-search" id="form-search">
           <input
             type="search"
             placeholder="Enter a city.."
             required
             class="form-city"
+            id="form-city"
           />
           <input type="submit" value="Search" class="form-button" />
         </form>
@@ -28,7 +29,7 @@
       <main>
         <div class="weather-data">
           <div>
-            <h1 class="weather-city">Jakarta</h1>
+            <h1 class="weather-city" id="weather-city">Jakarta</h1>
             <p class="weather-details">
               Saturday 23:35, few clouds <br />
               Humidity: <strong>68%</strong>, Wind: <strong>3.13km/h</strong>
@@ -57,4 +58,5 @@
       </footer>
     </div>
   </body>
+  <script src="script.js"></script>
 </html>
