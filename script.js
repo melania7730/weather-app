@@ -15,6 +15,8 @@ function updatedWeather(response) {
   windSpeed.innerHTML = `${response.data.wind.speed} km/h`;
   temperatureNumber.innerHTML = Math.round(temperature);
   icon.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-icon"}/>`;
+
+  getForecast(response.data.city);
 }
 function formatDate(date) {
   let hours = date.getHours();
@@ -38,6 +40,7 @@ function formatDate(date) {
 function searchCity(city) {
   let apiKey = "b5dca18t5009430fdddbc6b9afdb4d2o";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(updatedWeather);
 }
 
@@ -47,7 +50,13 @@ function searchResult(event) {
   searchCity(formCity.value);
 }
 
-function displayForecast() {
+function getForecast(city) {
+  let apiKey = "b5dca18t5009430fdddbc6b9afdb4d2o";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHtml = "";
 
@@ -74,4 +83,3 @@ let searchForm = document.querySelector("#form-search");
 searchForm.addEventListener("submit", searchResult);
 
 searchCity("Tabanan");
-displayForecast();
