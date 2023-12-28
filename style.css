@@ -6,10 +6,10 @@ a {
   color: #f76b8a;
 }
 .weather-app {
-  background-color: #fcfefe;
+  background-color: #fefcf3;
   margin: 50px auto;
   padding: 30px;
-  max-width: 650px;
+  max-width: 600px;
   border-radius: 20px;
   box-shadow: 0 30px 50px #66bfbf;
 }
